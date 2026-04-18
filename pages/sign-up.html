@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <!-- link font-family -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+    </style>
+
+    <!-- link tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms,aspect-ratio"></script>
+
+    <!-- Link tailwind config -->
+    <script src="../assets/tailwind.config.js"></script>
+
+    <!-- Custom tailwind CSS -->
+    <style type="text/tailwindcss">
+      @layer base {
+        h1 {
+          @apply text-[40px] font-medium mb-6;
+        }
+
+        form {
+          @apply flex flex-col gap-8;
+        }
+
+        input[type="checkbox"] {
+          @apply w-[24px] h-[24px] border-[1.5px] border-gray rounded;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          @apply w-full p-0 pb-2 border border-transparent border-b-[#E8ECEF] border-l-0;
+        }
+      }
+
+      @layer components {
+        .btn-sign-up {
+          @apply w-full py-[10px] px-10 bg-primary text-white text-center font-inter font-medium rounded-lg;
+        }
+
+        .container {
+          @apply min-h-screen w-full max-w-[1440px] mx-auto flex justify-center items-center gap-[88px];
+        }
+
+        .left-part {
+          @apply w-full max-w-[736px] flex flex-col items-center bg-backgroundSecondary;
+        }
+
+        .right-part {
+          @apply max-w-[456px] w-full;
+        }
+
+        .icon-password {
+          @apply absolute w-[20px] right-0 top-1/2 -translate-y-1/2;
+        }
+
+        .sign-in {
+          @apply flex gap-1 text-[16px] font-normal mb-8;
+        }
+
+        .name-company {
+          @apply text-[24px] mt-8 font-medium;
+        }
+      }
+
+      @layer utilities {
+      }
+    </style>
+  </head>
+  <body class="font-inter text-primary">
+    <div class="container">
+      <div class="left-part">
+        <p class="name-company">3legant<span class="text-gray">.</span></p>
+        <img
+          class="w-full"
+          src="../assets/img/sign-in-and-sign-up-img/Paste image.png"
+          alt="Image"
+        />
+      </div>
+
+      <div class="right-part">
+        <h1>Sign up</h1>
+        <div class="sign-in">
+          <p class="text-gray">Already have an account?</p>
+          <a class="text-green" href="./sign-in.html">Sign in</a>
+        </div>
+        <form action="/login">
+          <input type="text" placeholder="Your name" />
+          <input type="text" placeholder="Username" />
+          <input type="email" placeholder="Email address" />
+          <div class="password relative">
+            <input type="password" placeholder="Password" />
+            <img
+              class="icon-password"
+              src="../assets/img/sign-in-and-sign-up-img/Vector.png"
+              alt="Image"
+            />
+          </div>
+          <div class="check-box flex gap-3">
+            <input type="checkbox" />
+            <p class="text-gray">
+              I agree with
+              <strong class="text-primary">Privacy Policy</strong> and
+              <strong class="text-primary">Tems of Use</strong>
+            </p>
+          </div>
+
+          <button class="btn-sign-up">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

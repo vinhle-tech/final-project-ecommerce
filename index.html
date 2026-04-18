@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <!-- Font awesome icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- link font-family -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+    </style>
+
+    <!-- link tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms,aspect-ratio"></script>
+
+    <!-- Link tailwind config -->
+    <script src="./assets/tailwind.config.js"></script>
+
+    <!-- Custom tailwind CSS -->
+    <style type="text/tailwindcss">
+      @layer base {
+        header {
+          @apply flex justify-between w-full px-40 py-4 sticky top-0 bg-white z-50;
+
+          h1 {
+            @apply font-medium text-[24px] text-primary;
+          }
+
+          ul {
+            @apply flex gap-10 text-[14px] text-gray font-space font-medium items-center;
+
+            li {
+              @apply hover:text-primary;
+            }
+          }
+        }
+
+        footer {
+          @apply w-full;
+          .email {
+            @apply flex flex-col gap-8 bg-[url('./assets/img/home-page-img/footer.png')] bg-cover bg-center items-center justify-center  w-full h-[360px];
+
+            h3 {
+              @apply text-[40px] font-medium text-center;
+            }
+
+            p {
+              @apply text-[18px] font-normal font-inter;
+            }
+
+            .enter-email {
+              @apply flex gap-2 justify-center items-center w-full;
+
+              input {
+                @apply font-inter font-medium text-gray border-transparent max-w-[396px] w-full bg-[#6C727500] p-0;
+              }
+
+              a {
+                @apply font-inter font-medium text-gray;
+              }
+            }
+          }
+
+          .main-footer {
+            @apply bg-primary  text-[#E8ECEF] px-40 pt-20 pb-8 flex flex-col gap-[49px] justify-center items-center w-full;
+
+            .nav {
+              @apply flex justify-between items-center  w-full gap-8;
+            }
+
+            .name-company {
+              @apply flex justify-between items-center gap-8;
+
+              h3 {
+                @apply text-white text-[24px] font-medium;
+              }
+
+              p {
+                @apply font-inter text-[14px] font-normal;
+              }
+            }
+
+            ul {
+              @apply flex justify-center items-center gap-10 text-center flex-wrap;
+              a {
+                @apply text-[14px] font-inter font-normal hover:text-gray;
+              }
+            }
+
+            .copyright-and-policy {
+              @apply py-4 flex justify-between items-center w-full gap-8 border-t-[0.5px] border-gray;
+
+              .copyright {
+                @apply flex justify-start gap-7 items-center flex-wrap;
+
+                p {
+                  @apply text-[12px];
+                }
+              }
+
+              .icon-app {
+                @apply flex justify-end gap-6 items-center;
+              }
+            }
+          }
+        }
+
+        span {
+          @apply text-gray;
+        }
+      }
+
+      @layer components {
+        .shop-now {
+          @apply text-[14px] flex gap-3 justify-center font-inter bg-[#F3F5F7] relative;
+
+          a {
+            @apply text-blue font-medium border-b-2;
+          }
+
+          p {
+            @apply text-[#343839] font-semibold;
+          }
+
+          .x-exit {
+            @apply absolute top-1/2 -translate-y-1/2 right-[16px];
+          }
+        }
+
+        .icon {
+          @apply flex justify-start gap-4;
+
+          img {
+            @apply w-6 h-6;
+          }
+          p {
+            @apply w-5 h-5 bg-primary text-white rounded-full flex justify-center items-center;
+          }
+        }
+        .container {
+          @apply w-full max-w-[1120px] mx-auto;
+        }
+
+        .hero {
+          @apply relative mb-10;
+
+          img {
+            @apply w-full mb-8;
+          }
+
+          i {
+            @apply absolute text-gray w-[52px] h-[52px] bg-white rounded-full hover:text-primary flex items-center justify-center top-1/2 -translate-y-1/2;
+          }
+
+          .left-arrow {
+            @apply left-8;
+          }
+
+          .right-arrow {
+            @apply right-8;
+          }
+
+          div {
+            @apply flex absolute  gap-4 bottom-8 left-1/2 -translate-x-1/2;
+
+            p {
+              @apply bg-[#FEFEFE] rounded-full;
+            }
+
+            p:first-child {
+              @apply w-[30px] h-2;
+            }
+
+            p:not(:first-child) {
+              @apply w-2 h-2;
+            }
+          }
+        }
+
+        .hero-content {
+          @apply flex justify-between items-center gap-6 w-full mb-10;
+
+          h2 {
+            @apply text-primary text-[72px] font-medium;
+          }
+        }
+
+        .room-theme {
+          @apply grid grid-cols-2 gap-6;
+
+          a {
+            @apply font-inter text-[16px] font-medium border-b-2 border-primary;
+          }
+
+          h3 {
+            @apply text-[34px] text-primary font-medium mb-3;
+          }
+
+          .living-room {
+            @apply row-span-2 max-w-[548px] h-[664px] w-full bg-[url('./assets/img/home-page-img/Livingroom.png')] bg-cover bg-center;
+          }
+
+          .beb-room,
+          .kitchen-room {
+            @apply max-w-[548px] h-[319px] bg-cover bg-center;
+          }
+
+          .beb-room {
+            @apply bg-[url('./assets/img/home-page-img/BebRoom.png')];
+          }
+
+          .kitchen-room {
+            @apply bg-[url('./assets/img/home-page-img/KitchenRoom.png')];
+          }
+        }
+
+        .new-arrivals {
+          @apply flex justify-between mb-12 mt-6;
+
+          h3 {
+            @apply text-[40px] font-medium;
+          }
+
+          a {
+            @apply flex items-end text-[16px] font-medium font-inter border-b-2;
+          }
+        }
+
+        .grid-products {
+          @apply flex gap-6 justify-center mb-12 flex-wrap;
+          .product {
+            @apply max-w-[262px] w-full flex flex-col gap-3;
+
+            .img-product {
+              @apply w-full h-[349px]  bg-cover bg-center flex flex-col items-center gap-[215px];
+            }
+
+            .new-heart {
+              @apply flex justify-center gap-[131px] mt-4 font-inter font-bold text-[16px];
+
+              i {
+                @apply w-8 h-8 bg-white rounded-full flex justify-center items-center text-gray hover:text-primary cursor-pointer;
+              }
+
+              p {
+                @apply w-[67px] h-[24px] px-[14px] py-1 flex justify-center items-center mb-2 rounded border-transparent;
+              }
+              p:first-child {
+                @apply bg-white;
+              }
+
+              p:nth-child(2) {
+                @apply bg-green text-white;
+              }
+            }
+
+            button {
+              @apply bg-primary w-[230px] h-[46px] px-6 py-2 font-inter font-medium text-[16px] text-white mb-4 rounded-lg border-transparent hover:text-green;
+            }
+
+            .name-and-price {
+              @apply flex flex-col gap-1 font-inter text-[16px] font-semibold;
+              .price {
+                @apply flex gap-3;
+
+                p:nth-child(2) {
+                  @apply text-gray line-through;
+                }
+              }
+            }
+          }
+        }
+
+        .horizontal-bar {
+          @apply w-full h-1 bg-[#e8ecef] rounded-[80px];
+          div:first-child {
+            @apply w-full max-w-[834px] h-1 bg-primary rounded-[80px];
+          }
+        }
+
+        .service-features {
+          @apply flex gap-6 my-12 flex-wrap justify-center items-center;
+
+          .feature {
+            @apply bg-gray2 px-8 py-12 flex flex-col gap-4 max-w-[262px] w-full;
+            img {
+              @apply w-12 h-12;
+            }
+
+            p:first-child {
+              @apply text-[20px] font-medium;
+            }
+
+            p:nth-child(2) {
+              @apply font-normal text-[14px] text-gray;
+            }
+          }
+        }
+
+        .hero-2 {
+          @apply flex justify-start gap-[72px] mx-auto w-full;
+
+          .background-img {
+            @apply max-w-[720px] w-full h-[532px] bg-[url('./assets/img/home-page-img/Hero-2.png')] bg-cover bg-center;
+          }
+
+          .text {
+            @apply flex flex-col justify-center;
+
+            p:first-child {
+              @apply mb-4 text-blue font-inter font-bold;
+            }
+
+            h3 {
+              @apply text-[40px] font-medium;
+            }
+
+            p:nth-child(4),
+            p:nth-child(5) {
+              @apply text-[20px] font-normal font-inter;
+            }
+
+            p:nth-child(4) {
+              @apply mt-4;
+            }
+
+            a {
+              @apply font-inter font-medium border-b-2 mt-6 w-[100px] text-nowrap;
+            }
+          }
+        }
+
+        .articles {
+          @apply flex justify-between items-center mt-20 mb-10;
+
+          h3 {
+            @apply font-medium text-[40px];
+          }
+
+          a {
+            @apply border-b-2 font-medium font-inter;
+          }
+        }
+
+        .flex-articles {
+          @apply flex gap-[25px] justify-center items-center  mb-20;
+
+          .article {
+            @apply flex flex-col gap-6 max-w-[357px] w-full;
+
+            .background-img {
+              @apply h-[325px] bg-[url('./assets/img/home-page-img/article-1.png')] bg-cover bg-center;
+            }
+
+            p {
+              @apply font-medium text-[20px];
+            }
+
+            a {
+              @apply font-inter font-medium border-b-2;
+            }
+          }
+        }
+      }
+
+      @layer utilities {
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-primary">
+    <div class="shop-now">
+      <img src="./assets/img/home-page-img/ticket-percent.png" alt="Image" />
+      <p>30% off storewide — Limited time!</p>
+      <a href="">Shop Now <i class="fa-solid fa-arrow-right"></i> </a>
+      <i class="fa-solid fa-x x-exit"></i>
+    </div>
+
+    <header>
+      <h1>3legant<span class="text-gray">.</span></h1>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./pages/shop-page.html">Shop</a></li>
+        <li><a href="./pages/product-page.html">Product</a></li>
+        <li><a href="./pages/contact-us.html">Contact Us</a></li>
+      </ul>
+      <div class="icon">
+        <img src="./assets/img/home-page-img/search 02.png" alt="Image" />
+        <img src="./assets/img/home-page-img/profile.png" alt="Image" />
+        <div class="flex gap-[5px]">
+          <img src="./assets/img/home-page-img/shopping bag.png" alt="Image" />
+          <p>2</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="hero">
+        <img src="./assets/img/home-page-img/Paste image (1).png" alt="" />
+        <i class="fa-solid fa-arrow-left left-arrow"></i>
+        <i class="fa-solid fa-arrow-right right-arrow"></i>
+        <div>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="flex flex-col justify-start">
+          <h2>Simply Unique<span>/</span></h2>
+          <h2>Simply Better<span>.</span></h2>
+        </div>
+
+        <p class="w-full max-w-[424px] text-gray text-[16px] font-inter">
+          <span class="text-primary">3legant</span> is a gift & decorations
+          store based in HCMC, Vietnam. Est since 2019.
+        </p>
+      </div>
+
+      <div class="room-theme">
+        <div class="living-room">
+          <div class="mt-12 ml-12">
+            <h3>Living Room</h3>
+            <a href="./pages/shop-page.html"
+              >Shop Now <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div class="beb-room">
+            <div class="mt-[201px] ml-12">
+              <h3>Bebroom</h3>
+              <a href="./pages/shop-page.html"
+                >Shop Now <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="kitchen-room">
+            <div class="mt-[201px] ml-12">
+              <h3>Kitchen</h3>
+              <a href="./pages/shop-page.html"
+                >Shop Now <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="new-arrivals">
+        <div>
+          <h3>New</h3>
+          <h3>Arrivals</h3>
+        </div>
+        <a href="./pages/product-page.html"
+          >More Products <i class="fa-solid fa-arrow-right right-arrow"></i
+        ></a>
+      </div>
+
+      <div class="grid-products">
+        <div class="product">
+          <div
+            class="img-product bg-[url('./assets/img/home-page-img/product-1.png')]"
+          >
+            <div class="new-heart">
+              <div>
+                <p>NEW</p>
+                <p>-50%</p>
+              </div>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button>Add to cart</button>
+          </div>
+
+          <div class="name-and-price">
+            <div class="icon-star">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <p>Loveseat Sofa</p>
+            <div class="price">
+              <p>$199.00</p>
+              <p>$400.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div
+            class="img-product bg-[url('./assets/img/home-page-img/product-1.png')]"
+          >
+            <div class="new-heart">
+              <div>
+                <p>NEW</p>
+                <p>-50%</p>
+              </div>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button>Add to cart</button>
+          </div>
+
+          <div class="name-and-price">
+            <div class="icon-star">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <p>Loveseat Sofa</p>
+            <div class="price">
+              <p>$199.00</p>
+              <p>$400.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="product">
+          <div
+            class="img-product bg-[url('./assets/img/home-page-img/product-1.png')]"
+          >
+            <div class="new-heart">
+              <div>
+                <p>NEW</p>
+                <p>-50%</p>
+              </div>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button>Add to cart</button>
+          </div>
+
+          <div class="name-and-price">
+            <div class="icon-star">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <p>Loveseat Sofa</p>
+            <div class="price">
+              <p>$199.00</p>
+              <p>$400.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="product">
+          <div
+            class="img-product bg-[url('./assets/img/home-page-img/product-1.png')]"
+          >
+            <div class="new-heart">
+              <div>
+                <p>NEW</p>
+                <p>-50%</p>
+              </div>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button>Add to cart</button>
+          </div>
+
+          <div class="name-and-price">
+            <div class="icon-star">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <p>Loveseat Sofa</p>
+            <div class="price">
+              <p>$199.00</p>
+              <p>$400.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-bar">
+        <div></div>
+      </div>
+
+      <div class="service-features">
+        <div class="feature">
+          <img src="./assets/img/home-page-img/feature-1.png" alt="Image" />
+          <div>
+            <p>Free Shipping</p>
+            <p>Order above $200</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="./assets/img/home-page-img/feature-1.png" alt="Image" />
+          <div>
+            <p>Free Shipping</p>
+            <p>Order above $200</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="./assets/img/home-page-img/feature-1.png" alt="Image" />
+          <div>
+            <p>Free Shipping</p>
+            <p>Order above $200</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="./assets/img/home-page-img/feature-1.png" alt="Image" />
+          <div>
+            <p>Free Shipping</p>
+            <p>Order above $200</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-[1440px] w-full mx-auto">
+      <div class="hero-2">
+        <div class="background-img"></div>
+
+        <div class="text">
+          <p>SALE UP TO 35D OFF</p>
+          <h3>HUNDREDS of</h3>
+          <h3>New lower prices</h3>
+          <p>It’s more affordable than ever to give every</p>
+          <p>room in your home a stylish makeover</p>
+          <a href="./pages/shop-page.html"
+            >Shop Now <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="articles">
+        <h3>Articles</h3>
+        <a href="">More Articles <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="flex-articles">
+        <div class="article">
+          <div class="background-img"></div>
+          <div class="text">
+            <p>7 ways to decor your home</p>
+            <a href="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="article">
+          <div class="background-img"></div>
+          <div class="text">
+            <p>7 ways to decor your home</p>
+            <a href="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="article">
+          <div class="background-img"></div>
+          <div class="text">
+            <p>7 ways to decor your home</p>
+            <a href="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="email">
+        <div class="text">
+          <h3>Join Our NewSletter</h3>
+          <p>Sign up for deals, new products and promotions</p>
+        </div>
+        <form action="" class="enter-email">
+          <img src="./assets/img/home-page-img/email.png" alt="Image" />
+          <input type="email" placeholder="Email address" />
+          <a href="./pages/sign-up.html">Signup</a>
+        </form>
+      </div>
+
+      <div class="main-footer">
+        <div class="nav">
+          <div class="name-company">
+            <h3>3legant<span>.</span></h3>
+            <div class="w-[1px] h-6 bg-gray"></div>
+            <p>Gift & Decoration Store</p>
+          </div>
+          <div class="footer-nav">
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./pages/shop-page.html">Shop</a></li>
+              <li><a href="./pages/product-page.html">Product</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="./pages/contact-us.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright-and-policy">
+          <div class="copyright">
+            <p>Copyright © 2023 3legant. All rights reserved</p>
+            <p class="text-white">Privacy Policy</p>
+            <p class="text-white">Terms of Use</p>
+          </div>
+
+          <div class="icon-app">
+            <img src="./assets/img/home-page-img/instagram.png" alt="Image" />
+            <img src="./assets/img/home-page-img/facebook.png" alt="Image" />
+            <img src="./assets/img/home-page-img/youtube.png" alt="Image" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
