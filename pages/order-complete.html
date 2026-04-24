@@ -131,6 +131,14 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
             }
           }
         }
+
+        main {
+          @apply max-w-[1120px] w-full mx-auto my-20 font-inter;
+        }
+
+        h2 {
+          @apply font-medium text-[54px] mb-10 text-center;
+        }
       }
 
       @layer components {
@@ -158,6 +166,43 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
           }
           p {
             @apply w-5 h-5 bg-primary text-white rounded-full flex justify-center items-center;
+          }
+        }
+
+        .status-3 {
+          @apply flex gap-8 max-w-[832px] w-full mx-auto justify-between items-start mb-20;
+
+          .status {
+            @apply max-w-[256] w-full;
+            .name-status {
+              @apply flex justify-start items-center gap-4;
+
+              p {
+                @apply font-inter font-semibold;
+              }
+              .number {
+                @apply w-[42px] h-[42px]  text-white rounded-[40px] px-[17px] py-2 flex justify-center items-center;
+              }
+            }
+          }
+        }
+
+        .complete-order {
+          @apply max-w-[738px] w-full px-[95px] py-[80px] shadow-[0_32px_48px_-35px_rgba(18,18,18,0.5)] mx-auto;
+
+          .products {
+            @apply flex w-full justify-between lg:justify-center items-center gap-3 lg:gap-10 mb-10;
+            .product {
+              @apply relative w-[80px] h-[96px]  bg-cover bg-center;
+
+              p {
+                @apply absolute w-4 h-4 lg:w-[32px] lg:h-[32px] top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-primary rounded-full text-white flex justify-center items-center;
+              }
+            }
+          }
+
+          button {
+            @apply max-w-[203px] w-full h-[52px] bg-primary text-white rounded-[80px] font-medium border border-primary hover:text-primary hover:bg-white transition-all duration-300 px-10 text-nowrap;
           }
         }
       }
@@ -215,6 +260,86 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
         </div>
       </div>
     </header>
+
+    <main>
+      <h2>Complete!</h2>
+      <div class="status-3 p-8">
+        <div class="status hidden lg:block">
+          <div class="name-status">
+            <p class="number bg-green"><i class="fa-solid fa-check"></i></p>
+            <p class="text-green">Shopping cart</p>
+          </div>
+
+          <div class="line h-[2px] w-full bg-green mt-6"></div>
+        </div>
+
+        <div class="status hidden lg:block">
+          <div class="name-status">
+            <p class="number bg-green"><i class="fa-solid fa-check"></i></p>
+            <p class="text-green">Checkout details</p>
+          </div>
+
+          <div class="line h-[2px] w-full bg-green mt-6"></div>
+        </div>
+
+        <div class="status">
+          <div class="name-status">
+            <p class="number bg-primary">3</p>
+            <p class="text-primary">Oder complete</p>
+          </div>
+
+          <div class="line h-[2px] w-full bg-primary mt-6"></div>
+        </div>
+      </div>
+
+      <section class="complete-order">
+        <h3
+          class="font-poppins font-medium text-[28px] mb-4 text-center text-gray"
+        >
+          Thank you!
+        </h3>
+
+        <p class="text-[40px] font-medium font-poppins mb-10 text-center">
+          Your order has been received
+        </p>
+
+        <div class="products">
+          <div class="product bg-[url('../assets/img/cart/img-1.png')]">
+            <p>2</p>
+          </div>
+
+          <div class="product bg-[url('../assets/img/cart/img-2.png')]">
+            <p>2</p>
+          </div>
+
+          <div class="product bg-[url('../assets/img/cart/img-3.png')]">
+            <p>1</p>
+          </div>
+        </div>
+
+        <div class="info flex justify-center items-center gap-8 mb-10">
+          <div
+            class="name-info text-gray text-[14px] font-semibold flex flex-col justify-between gap-5"
+          >
+            <p>Order code:</p>
+            <p>Date:</p>
+            <p>Total:</p>
+            <p>Payment method:</p>
+          </div>
+
+          <div
+            class="data text-primary text-[14px] font-semibold flex flex-col justify-between gap-5"
+          >
+            <p>#0123_45678</p>
+            <p>October 19, 2023</p>
+            <p>$1,345.00</p>
+            <p>Credit Card</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center"><button>Purchase history</button></div>
+      </section>
+    </main>
 
     <footer>
       <div class="email">

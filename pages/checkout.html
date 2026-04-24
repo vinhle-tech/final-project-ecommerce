@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font awesome icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Font awesome icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- link font-family -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+    </style>
+
+    <!-- link tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms,aspect-ratio"></script>
+
+    <!-- Link tailwind config -->
+    <script src="../assets/tailwind.config.js"></script>
+
+    <!-- Custom tailwind CSS -->
+    <style type="text/tailwindcss">
+      @layer base {
+        header {
+          @apply flex justify-between w-full px-8 xl:px-40 py-4 sticky top-0 bg-white z-50;
+
+          h1 {
+            @apply font-medium xl:text-[24px] text-primary;
+          }
+
+          ul {
+            @apply gap-10 text-[14px] text-gray font-space font-medium items-center;
+
+            li {
+              @apply hover:text-primary;
+            }
+          }
+        }
+
+        a {
+          @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+        }
+
+        main {
+          @apply max-w-[1120px] w-full mx-auto my-20 font-inter px-8;
+        }
+
+        h2 {
+          @apply font-medium text-[54px] mb-10 text-center;
+        }
+
+        h3 {
+          @apply font-medium font-poppins text-[20px];
+        }
+
+        label[for="text"],
+        label[for="email"] {
+          @apply font-bold text-[12px] text-gray;
+        }
+
+        form {
+          @apply w-full  flex flex-col gap-3 items-start justify-center;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+          @apply w-full px-4 py-2 border border-[#CBCBCB] rounded-md text-gray;
+        }
+
+        section {
+          @apply w-full border border-gray rounded px-6 py-10 flex flex-col gap-6 justify-between items-start mb-6;
+        }
+
+        footer {
+          @apply w-full;
+          .email {
+            @apply flex flex-col gap-8 bg-[url('../assets/img/home-page-img/footer.png')] bg-cover bg-center px-8 items-center justify-center  w-full h-[360px];
+
+            h3 {
+              @apply text-[28px] xl:text-[40px] font-medium text-center;
+            }
+
+            p {
+              @apply text-[14px] xl:text-[18px] font-normal font-inter;
+            }
+
+            .enter-email {
+              @apply flex flex-row gap-2 justify-center items-center w-full;
+
+              input {
+                @apply font-inter font-medium text-gray border-transparent max-w-[396px] w-full bg-[#6C727500] p-0;
+              }
+
+              a {
+                @apply font-inter font-medium text-gray relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+              }
+            }
+          }
+
+          .main-footer {
+            @apply bg-primary  text-[#E8ECEF] xl:px-40 xl:pt-20 xl:pb-8 px-8 py-12 flex flex-col gap-[49px] justify-center items-center w-full;
+
+            .nav {
+              @apply flex flex-col lg:flex-row justify-between items-center  w-full gap-8;
+            }
+
+            .name-company {
+              @apply flex flex-col lg:flex-row justify-between items-center gap-4 xl:gap-8;
+
+              h3 {
+                @apply text-white text-[24px] font-medium;
+              }
+
+              p {
+                @apply font-inter text-[14px] font-normal;
+              }
+            }
+
+            ul {
+              @apply flex flex-col  lg:flex-row justify-center items-center gap-8 xl:gap-10 text-center flex-wrap;
+              a {
+                @apply text-[14px] font-inter font-normal  relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-white;
+              }
+            }
+
+            .copyright-and-policy {
+              @apply py-4 flex flex-col lg:flex-row justify-between items-center w-full gap-8 border-t-[0.5px] border-gray;
+
+              .copyright {
+                @apply flex flex-col lg:flex-row justify-center lg:justify-start gap-7 items-center flex-wrap;
+
+                p {
+                  @apply text-[12px];
+                }
+              }
+
+              .icon-app {
+                @apply flex justify-end gap-6 items-center;
+              }
+            }
+          }
+        }
+      }
+
+      @layer components {
+        .shop-now {
+          @apply text-[14px] flex gap-3 justify-center font-inter bg-[#F3F5F7] relative;
+
+          a {
+            @apply text-blue font-medium border-b-2;
+          }
+
+          p {
+            @apply text-[#343839] font-semibold;
+          }
+
+          .x-exit {
+            @apply absolute top-1/2 -translate-y-1/2 right-[16px];
+          }
+        }
+
+        .icon {
+          @apply flex justify-start gap-4;
+
+          img {
+            @apply w-6 h-6;
+          }
+          p {
+            @apply w-5 h-5 bg-primary text-white rounded-full flex justify-center items-center;
+          }
+        }
+
+        .status-3 {
+          @apply flex gap-8 max-w-[832px] w-full mx-auto justify-between items-start mb-20;
+
+          .status {
+            @apply max-w-[256] w-full;
+            .name-status {
+              @apply flex justify-start items-center gap-4;
+
+              p {
+                @apply font-inter font-semibold;
+              }
+              .number {
+                @apply w-[42px] h-[42px]  text-white rounded-[40px] px-[17px] py-2 flex justify-center items-center;
+              }
+            }
+          }
+        }
+
+        .contact-info {
+          .name {
+            @apply flex items-center justify-between w-full;
+
+            .first-name,
+            .last-name {
+              @apply max-w-[285px];
+            }
+          }
+        }
+
+        .state-and-zip-code {
+          form {
+            @apply max-w-[285px];
+          }
+        }
+
+        .payment-method {
+          .pay-by-card,
+          .paypal {
+            @apply w-full px-4 py-3 border border-gray rounded;
+
+            input {
+              @apply checked:bg-primary;
+            }
+          }
+        }
+
+        .date-and-cvc {
+          form {
+            @apply max-w-[285px];
+          }
+        }
+
+        .btn-order {
+          @apply w-full  px-10 py-3 bg-primary border border-primary text-white font-medium hover:bg-white hover:text-primary transition-all duration-300 rounded-lg;
+        }
+
+        .order-summary {
+          @apply max-w-[413px] w-full border border-gray rounded-md px-6 py-4;
+          .products {
+            @apply w-full flex flex-col justify-center items-start gap-6;
+
+            .product {
+              @apply flex justify-between items-center gap-8 w-full;
+
+              .info {
+                @apply flex flex-col items-start justify-center gap-2;
+
+                .name {
+                  @apply font-semibold text-[14px];
+                }
+
+                .color {
+                  @apply text-gray text-[12px];
+                }
+                .amount {
+                  @apply flex justify-between items-center w-[80px] px-2 h-[32px] border rounded border-gray text-[12px] font-semibold;
+                }
+              }
+
+              .subtotal {
+                @apply text-[18px] font-semibold self-start;
+              }
+            }
+          }
+        }
+
+        .main-action {
+          @apply flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-8;
+        }
+
+        .btn-apply {
+          @apply px-[26px] h-[52px] py-0 bg-primary text-white font-medium border border-primary rounded-lg hover:text-primary hover:bg-white transition-all duration-300;
+        }
+
+        .calc-total {
+          .coupon,
+          .ship-status,
+          .subtotal,
+          .total {
+            @apply flex justify-between items-center gap-6 my-3;
+          }
+
+          .coupon {
+            .icon-2 {
+              @apply flex justify-start gap-2 items-center;
+            }
+          }
+        }
+      }
+
+      @layer utilities {
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-primary">
+    <div class="shop-now">
+      <img
+        src="../assets/img/home-page-img/ticket-percent.png"
+        alt="Image"
+        class="xl:w-6 xl:h-6 w-4 h-4"
+      />
+      <p>30% off storewide — Limited time!</p>
+      <a href="./shop-page.html" class="hidden lg:block"
+        >Shop Now <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <i class="fa-solid fa-x x-exit"></i>
+    </div>
+
+    <header>
+      <div class="flex justify-center gap-1 items-center">
+        <div class="icon justify-center flex items-center">
+          <i class="fa-solid fa-bars block lg:hidden text-[12px]"></i>
+        </div>
+        <h1>3legant<span class="text-gray">.</span></h1>
+      </div>
+
+      <ul class="hidden lg:flex">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./shop-page.html">Shop</a></li>
+        <li><a href="./product-page.html">Product</a></li>
+        <li><a href="./contact-us.html">Contact Us</a></li>
+      </ul>
+
+      <div class="icon">
+        <img
+          src="../assets/img/home-page-img/search 02.png"
+          alt="Image"
+          class="hidden lg:block"
+        />
+        <a href="./sign-in.html" class="hidden lg:block">
+          <img src="../assets/img/home-page-img/profile.png" alt="Image" />
+        </a>
+        <div class="flex gap-[5px]">
+          <a href="./cart.html">
+            <img
+              src="../assets/img/home-page-img/shopping bag.png"
+              alt="Image"
+            />
+          </a>
+          <p>2</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h2>Check Out</h2>
+      <div class="status-3">
+        <div class="status hidden lg:block">
+          <div class="name-status">
+            <p class="number bg-green"><i class="fa-solid fa-check"></i></p>
+            <p class="text-green">Shopping cart</p>
+          </div>
+
+          <div class="line h-[2px] w-full bg-green mt-6"></div>
+        </div>
+
+        <div class="status">
+          <div class="name-status">
+            <p class="number bg-primary">2</p>
+            <p class="text-primary">Checkout details</p>
+          </div>
+
+          <div class="line h-[2px] w-full bg-primary mt-6"></div>
+        </div>
+
+        <div class="status hidden lg:block">
+          <div class="name-status text-gray">
+            <p class="number bg-gray">3</p>
+            <p>Oder complete</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-action">
+        <div class="info-ship-payment max-w-[643px] w-full">
+          <section class="contact-info">
+            <h3>Contact Information</h3>
+
+            <div class="name gap-4">
+              <form action="" class="first-name">
+                <label for="text">First name</label>
+                <input type="text" placeholder="First name" />
+              </form>
+
+              <form action="" class="last-name">
+                <label for="text">Last name</label>
+                <input type="text" placeholder="Last name" />
+              </form>
+            </div>
+
+            <form action="" class="phone-number">
+              <label for="text">Phone number</label>
+              <input type="text" placeholder="Phone number" />
+            </form>
+
+            <form action="" class="email">
+              <label for="email">EMAIL ADDRESS</label>
+              <input type="email" name="email" id="" placeholder="Your Email" />
+            </form>
+          </section>
+
+          <section class="ship-address">
+            <h3>Shipping Address</h3>
+
+            <form action="" class="street-add">
+              <label for="text">STREET ADDRESS *</label>
+              <input type="text" placeholder="Street Address" />
+            </form>
+
+            <form action="" class="country">
+              <label for="text">COUNTRY *</label>
+              <input type="text" placeholder="Country" />
+            </form>
+
+            <form action="" class="town-city">
+              <label for="text">TOWN / CITY *</label>
+              <input type="text" placeholder="Town / City" />
+            </form>
+
+            <div
+              class="state-and-zip-code flex justify-between items-center w-full gap-4"
+            >
+              <form action="" class="state">
+                <label for="text">STATE *</label>
+                <input type="text" placeholder="State" />
+              </form>
+
+              <form action="" class="zip-code">
+                <label for="text">ZIP CODE *</label>
+                <input type="text" placeholder="Zip Code" />
+              </form>
+            </div>
+
+            <form action="" class="flex flex-row justify-start gap-3">
+              <input
+                type="checkbox"
+                class="border-[1.5px] rounded border-gray checked:bg-primary w-6 h-6"
+              />
+
+              <p class="text-gray">
+                Use a different billing address (optional)
+              </p>
+            </form>
+          </section>
+
+          <section class="payment-method">
+            <h3>Payment method</h3>
+
+            <form
+              action=""
+              class="pay-by-card flex flex-row justify-between items-center"
+            >
+              <div class="flex gap-3 items-center justify-start">
+                <input type="radio" />
+                <p>Pay by Card Credit</p>
+              </div>
+              <img src="../assets/img/checkout/money.png" alt="" />
+            </form>
+
+            <form
+              action=""
+              class="paypal flex-row justify-start gap-3 items-center"
+            >
+              <input type="radio" />
+              <p>Paypal</p>
+            </form>
+
+            <div class="line h-[1px] w-full bg-gray"></div>
+
+            <form action="" class="card-number">
+              <label for="text">CARD NUMBER</label>
+              <input type="text" placeholder="1234 1234 1234" />
+            </form>
+
+            <div
+              class="date-and-cvc flex justify-between items-center w-full gap-4"
+            >
+              <form action="" class="date">
+                <label for="text">EXPIRATION DATE</label>
+                <input type="text" placeholder="MM/YY" />
+              </form>
+
+              <form action="" class="cvc">
+                <label for="text">CVC</label>
+                <input type="text" placeholder="CVC code" />
+              </form>
+            </div>
+          </section>
+
+          <button
+            class="btn-order"
+            onclick="window.location.href = 'order-complete.html'"
+          >
+            Place Order
+          </button>
+        </div>
+
+        <div class="order-summary">
+          <h3 class="font-poppins font-medium text-[28px] mb-6">
+            Order summary
+          </h3>
+
+          <div class="products mb-6">
+            <div class="product">
+              <div class="flex justify-center items-center gap-4">
+                <img src="../assets/img/cart/img-1.png" alt="Image" />
+                <div class="info">
+                  <p class="name">Tray Table</p>
+                  <p class="color">Color Black</p>
+                  <div class="amount">
+                    <p>-</p>
+                    <p>2</p>
+                    <p>+</p>
+                  </div>
+                </div>
+              </div>
+              <p class="subtotal">$38.00</p>
+            </div>
+            <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+            <div class="product">
+              <div class="flex justify-center items-center gap-4">
+                <img src="../assets/img/cart/img-2.png" alt="Image" />
+                <div class="info">
+                  <p class="name">Tray Table</p>
+                  <p class="color">Color Black</p>
+                  <div class="amount">
+                    <p>-</p>
+                    <p>2</p>
+                    <p>+</p>
+                  </div>
+                </div>
+              </div>
+              <p class="subtotal">$38.00</p>
+            </div>
+            <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+            <div class="product">
+              <div class="flex justify-center items-center gap-4">
+                <img src="../assets/img/cart/img-3.png" alt="Image" />
+                <div class="info">
+                  <p class="name">Tray Table</p>
+                  <p class="color">Color Black</p>
+                  <div class="amount">
+                    <p>-</p>
+                    <p>2</p>
+                    <p>+</p>
+                  </div>
+                </div>
+              </div>
+              <p class="subtotal">$38.00</p>
+            </div>
+            <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+          </div>
+
+          <form
+            action=""
+            class="apply flex-row justify-between items-center gap-3 mb-4"
+          >
+            <input type="text" class="max-w-[258px] w-full h-[52px]" />
+            <button class="btn-apply">Apply</button>
+          </form>
+
+          <div class="calc-total">
+            <div class="coupon">
+              <div class="icon-2">
+                <img src="../assets/img/cart/ticket-percent.png" alt="" />
+                <p class="font-normal">JankateMW</p>
+              </div>
+
+              <p class="text-green font-semibold">-$25.00 [Remove]</p>
+            </div>
+            <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+            <div class="ship-status">
+              <p>Shipping</p>
+              <p class="font-semibold">Free</p>
+            </div>
+            <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+            <div class="subtotal">
+              <p>Subtotal</p>
+              <p class="font-semibold">$99.00</p>
+            </div>
+            <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+            <div class="total">
+              <p class="font-medium text-[20px]">Total</p>
+              <p class="font-medium text-[20px]">$234.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="email">
+        <div class="text">
+          <h3>Join Our NewSletter</h3>
+          <p>Sign up for deals, new products and promotions</p>
+        </div>
+        <form action="" class="enter-email">
+          <img src="../assets/img/home-page-img/email.png" alt="Image" />
+          <input type="email" placeholder="Email address" />
+          <a href="../pages/sign-up.html">Signup</a>
+        </form>
+      </div>
+
+      <div class="main-footer">
+        <div class="nav">
+          <div class="name-company">
+            <h3>3legant<span>.</span></h3>
+            <div class="w-[1px] h-6 bg-gray hidden lg:block"></div>
+            <div class="w-6 h-[1px] bg-gray block lg:hidden"></div>
+            <p>Gift & Decoration Store</p>
+          </div>
+          <div class="footer-nav">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./shop-page.html">Shop</a></li>
+              <li><a href="./product-page.html">Product</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="./contact-us.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright-and-policy">
+          <div class="copyright">
+            <p>Copyright © 2023 3legant. All rights reserved</p>
+            <p class="text-white">Privacy Policy</p>
+            <p class="text-white">Terms of Use</p>
+          </div>
+
+          <div class="icon-app">
+            <img src="../assets/img/home-page-img/instagram.png" alt="Image" />
+            <img src="../assets/img/home-page-img/facebook.png" alt="Image" />
+            <img src="../assets/img/home-page-img/youtube.png" alt="Image" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

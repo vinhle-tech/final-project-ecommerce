@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3legant.</title>
+    <!-- Font awesome icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- link font-family -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+    </style>
+
+    <!-- link tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms,aspect-ratio"></script>
+
+    <!-- Link tailwind config -->
+    <script src="../assets/tailwind.config.js"></script>
+
+    <!-- Custom tailwind CSS -->
+    <style type="text/tailwindcss">
+      @layer base {
+        header {
+          @apply flex justify-between w-full px-8 xl:px-40 py-4 sticky top-0 bg-white z-50;
+
+          h1 {
+            @apply font-medium xl:text-[24px] text-primary;
+          }
+
+          ul {
+            @apply gap-10 text-[14px] text-gray font-space font-medium items-center;
+
+            li {
+              @apply hover:text-primary;
+            }
+          }
+        }
+
+        a {
+          @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+        }
+
+        footer {
+          @apply w-full;
+          .email {
+            @apply flex flex-col gap-8 bg-[url('../assets/img/home-page-img/footer.png')] bg-cover bg-center px-8 items-center justify-center  w-full h-[360px];
+
+            h3 {
+              @apply text-[28px] xl:text-[40px] font-medium text-center;
+            }
+
+            p {
+              @apply text-[14px] xl:text-[18px] font-normal font-inter;
+            }
+
+            .enter-email {
+              @apply flex gap-2 justify-center items-center w-full;
+
+              input {
+                @apply font-inter font-medium text-gray border-transparent max-w-[396px] w-full bg-[#6C727500] p-0;
+              }
+
+              a {
+                @apply font-inter font-medium text-gray relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+              }
+            }
+          }
+
+          .main-footer {
+            @apply bg-primary  text-[#E8ECEF] xl:px-40 xl:pt-20 xl:pb-8 px-8 py-12 flex flex-col gap-[49px] justify-center items-center w-full;
+
+            .nav {
+              @apply flex flex-col lg:flex-row justify-between items-center  w-full gap-8;
+            }
+
+            .name-company {
+              @apply flex flex-col lg:flex-row justify-between items-center gap-4 xl:gap-8;
+
+              h3 {
+                @apply text-white text-[24px] font-medium;
+              }
+
+              p {
+                @apply font-inter text-[14px] font-normal;
+              }
+            }
+
+            ul {
+              @apply flex flex-col  lg:flex-row justify-center items-center gap-8 xl:gap-10 text-center flex-wrap;
+              a {
+                @apply text-[14px] font-inter font-normal  relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-white;
+              }
+            }
+
+            .copyright-and-policy {
+              @apply py-4 flex flex-col lg:flex-row justify-between items-center w-full gap-8 border-t-[0.5px] border-gray;
+
+              .copyright {
+                @apply flex flex-col lg:flex-row justify-center lg:justify-start gap-7 items-center flex-wrap;
+
+                p {
+                  @apply text-[12px];
+                }
+              }
+
+              .icon-app {
+                @apply flex justify-end gap-6 items-center;
+              }
+            }
+          }
+        }
+
+        main {
+          @apply max-w-[1120px] w-full mx-auto my-20 font-inter px-8;
+        }
+
+        h2 {
+          @apply font-medium text-[54px] mb-10 text-center;
+        }
+      }
+
+      @layer components {
+        .shop-now {
+          @apply text-[14px] flex gap-3 justify-center font-inter bg-[#F3F5F7] relative;
+
+          a {
+            @apply text-blue font-medium border-b-2;
+          }
+
+          p {
+            @apply text-[#343839] font-semibold;
+          }
+
+          .x-exit {
+            @apply absolute top-1/2 -translate-y-1/2 right-[16px];
+          }
+        }
+
+        .icon {
+          @apply flex justify-start gap-4;
+
+          img {
+            @apply w-6 h-6;
+          }
+          p {
+            @apply w-5 h-5 bg-primary text-white rounded-full flex justify-center items-center;
+          }
+        }
+
+        .status-3 {
+          @apply flex gap-8 max-w-[832px] w-full mx-auto justify-between items-start mb-20;
+
+          .status {
+            @apply max-w-[256] w-full;
+            .name-status {
+              @apply flex justify-start items-center gap-4;
+
+              p {
+                @apply font-inter font-semibold;
+              }
+              .number {
+                @apply w-[42px] h-[42px]  text-white rounded-[40px] px-[17px] py-2 flex justify-center items-center;
+              }
+            }
+          }
+        }
+
+        .cart-detail {
+          @apply flex flex-col lg:flex-row justify-between items-start lg:gap-16 mb-20;
+          .products {
+            @apply max-w-[643px] w-full flex flex-col justify-center gap-6;
+
+            .title-bar {
+              @apply w-full flex justify-between gap-8 items-center font-semibold;
+            }
+
+            .product {
+              @apply flex justify-between items-center gap-8 w-full;
+
+              .info {
+                @apply flex flex-col items-start justify-center gap-2;
+
+                .name {
+                  @apply font-semibold text-[14px];
+                }
+
+                .color {
+                  @apply text-gray text-[12px];
+                }
+
+                .remove {
+                  @apply flex items-center gap-1 text-gray font-semibold text-[14px];
+                }
+              }
+
+              .amount-and-price {
+                @apply flex justify-end lg:justify-between items-center gap-4 max-w-[328px] w-full;
+                .amount {
+                  @apply flex justify-between items-center w-[80px] px-2 py-3 border rounded border-gray text-[12px] font-semibold;
+                }
+
+                .price {
+                  @apply text-[18px];
+                }
+
+                .subtotal {
+                  @apply text-[18px] font-semibold;
+                }
+              }
+            }
+          }
+
+          .cart-summary {
+            @apply max-w-[413px] w-full p-6 border rounded-md border-gray;
+
+            .card {
+              @apply flex justify-between w-full max-w-[365px] px-4 py-3 mb-3 border border-gray rounded;
+            }
+
+            input {
+              @apply cursor-pointer;
+            }
+
+            .btn-checkout {
+              @apply w-full px-6 py-[10px] bg-primary border border-primary rounded-lg text-[18px] font-medium text-white hover:bg-white hover:text-primary transition-all duration-300;
+            }
+          }
+        }
+      }
+      @layer utilities {
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-primary">
+    <div class="shop-now">
+      <img
+        src="../assets/img/home-page-img/ticket-percent.png"
+        alt="Image"
+        class="xl:w-6 xl:h-6 w-4 h-4"
+      />
+      <p>30% off storewide — Limited time!</p>
+      <a href="./shop-page.html" class="hidden lg:block"
+        >Shop Now <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <i class="fa-solid fa-x x-exit"></i>
+    </div>
+
+    <header>
+      <div class="flex justify-center gap-1 items-center">
+        <div class="icon justify-center flex items-center">
+          <i class="fa-solid fa-bars block lg:hidden text-[12px]"></i>
+        </div>
+        <h1>3legant<span class="text-gray">.</span></h1>
+      </div>
+
+      <ul class="hidden lg:flex">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./shop-page.html">Shop</a></li>
+        <li><a href="./product-page.html">Product</a></li>
+        <li><a href="./contact-us.html">Contact Us</a></li>
+      </ul>
+
+      <div class="icon">
+        <img
+          src="../assets/img/home-page-img/search 02.png"
+          alt="Image"
+          class="hidden lg:block"
+        />
+        <a href="./sign-in.html" class="hidden lg:block">
+          <img src="../assets/img/home-page-img/profile.png" alt="Image" />
+        </a>
+        <div class="flex gap-[5px]">
+          <a href="./cart.html">
+            <img
+              src="../assets/img/home-page-img/shopping bag.png"
+              alt="Image"
+            />
+          </a>
+          <p>2</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h2>Cart</h2>
+      <div class="status-3">
+        <div class="status">
+          <div class="name-status">
+            <p class="number bg-primary">1</p>
+            <p>Shopping cart</p>
+          </div>
+
+          <div class="line h-[2px] w-full bg-primary mt-6"></div>
+        </div>
+
+        <div class="status hidden lg:block">
+          <div class="name-status text-gray">
+            <p class="number bg-gray">2</p>
+            <p>Checkout details</p>
+          </div>
+        </div>
+
+        <div class="status hidden lg:block">
+          <div class="name-status text-gray">
+            <p class="number bg-gray">3</p>
+            <p>Oder complete</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-detail">
+        <div class="products">
+          <div class="title-bar">
+            <div>
+              <p>Product</p>
+            </div>
+
+            <div
+              class="max-w-[322px] w-full justify-between items-center hidden lg:flex"
+            >
+              <p>Quantity</p>
+              <p>Price</p>
+              <p>Subtotal</p>
+            </div>
+          </div>
+
+          <div class="line-primary w-full h-[1px] bg-primary"></div>
+
+          <div class="product">
+            <div class="flex justify-center items-center gap-4">
+              <img src="../assets/img/cart/img-1.png" alt="Image" />
+              <div class="info">
+                <p class="name">Tray Table</p>
+                <p class="color">Color Black</p>
+                <p class="remove"><i class="fa-solid fa-x"></i> Remove</p>
+              </div>
+            </div>
+
+            <div class="amount-and-price">
+              <div class="amount">
+                <p>-</p>
+                <p>2</p>
+                <p>+</p>
+              </div>
+              <p class="price hidden lg:block">$19.00</p>
+              <p class="subtotal">$38.00</p>
+            </div>
+          </div>
+          <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+          <div class="product">
+            <div class="flex justify-center items-center gap-4">
+              <img src="../assets/img/cart/img-2.png" alt="Image" />
+              <div class="info">
+                <p class="name">Tray Table</p>
+                <p class="color">Color Black</p>
+                <p class="remove"><i class="fa-solid fa-x"></i> Remove</p>
+              </div>
+            </div>
+
+            <div class="amount-and-price">
+              <div class="amount">
+                <p>-</p>
+                <p>2</p>
+                <p>+</p>
+              </div>
+              <p class="price hidden lg:block">$19.00</p>
+              <p class="subtotal">$38.00</p>
+            </div>
+          </div>
+          <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+          <div class="product">
+            <div class="flex justify-center items-center gap-4">
+              <img src="../assets/img/cart/img-3.png" alt="Image" />
+              <div class="info">
+                <p class="name">Tray Table</p>
+                <p class="color">Color Black</p>
+                <p class="remove"><i class="fa-solid fa-x"></i> Remove</p>
+              </div>
+            </div>
+
+            <div class="amount-and-price">
+              <div class="amount">
+                <p>-</p>
+                <p>2</p>
+                <p>+</p>
+              </div>
+              <p class="price hidden lg:block">$19.00</p>
+              <p class="subtotal">$38.00</p>
+            </div>
+          </div>
+          <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+        </div>
+
+        <div class="cart-summary">
+          <h3 class="font-medium text-[20px] font-poppins mb-4">
+            Cart summary
+          </h3>
+
+          <form class="shipping mb-4">
+            <div class="card">
+              <div class="flex justify-start gap-3 items-center">
+                <input
+                  type="radio"
+                  class="checked:bg-primary"
+                  name="shipping"
+                  value="free"
+                />
+                <p>Free shipping</p>
+              </div>
+
+              <p class="price text-gray">$0.00</p>
+            </div>
+
+            <div class="card">
+              <div class="flex justify-start gap-3 items-center">
+                <input
+                  type="radio"
+                  class="checked:bg-primary"
+                  name="shipping"
+                  value="express"
+                />
+                <p>Express shipping</p>
+              </div>
+
+              <p class="price text-gray">+$15.00</p>
+            </div>
+
+            <div class="card">
+              <div class="flex justify-start gap-3 items-center">
+                <input
+                  type="radio"
+                  class="checked:bg-primary"
+                  name="shipping"
+                  value="pickup"
+                />
+                <p>Pick Up</p>
+              </div>
+
+              <p class="price text-gray">%21.00</p>
+            </div>
+          </form>
+
+          <div class="subtotal flex justify-between items-center gap-8 my-3">
+            <p class="text-gray">Subtotal</p>
+            <p class="font-semibold">$1234.00</p>
+          </div>
+
+          <div class="line-2 h-[1px] w-full bg-[#f5f5f5]"></div>
+
+          <div
+            class="subtotal flex justify-between items-center gap-8 mt-3 mb-8"
+          >
+            <p class="text-[20px] font-semibold">Total</p>
+            <p class="font-semibold text-[20px]">$1234.00</p>
+          </div>
+
+          <button
+            onclick="window.location.href = 'checkout.html'"
+            class="btn-checkout"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+
+      <div class="coupon max-w-[392px] w-full">
+        <p class="text-[20px] font-medium font-poppins">Have a coupon?</p>
+        <p class="text-gray mb-4">Add your code for an instant cart discount</p>
+
+        <form
+          action=""
+          class="flex justify-start items-center w-full px-4 gap-2 border border-[#6C727580] py-3"
+        >
+          <img src="../assets/img/cart/ticket-percent.png" alt="" />
+          <input
+            type="text"
+            placeholder="Coupon Code"
+            class="text-gray font-medium border-transparent p-0 w-[309px]"
+          />
+
+          <button class="font-medium">Apply</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="email">
+        <div class="text">
+          <h3>Join Our NewSletter</h3>
+          <p>Sign up for deals, new products and promotions</p>
+        </div>
+        <form action="" class="enter-email">
+          <img src="../assets/img/home-page-img/email.png" alt="Image" />
+          <input type="email" placeholder="Email address" />
+          <a href="../pages/sign-up.html">Signup</a>
+        </form>
+      </div>
+
+      <div class="main-footer">
+        <div class="nav">
+          <div class="name-company">
+            <h3>3legant<span>.</span></h3>
+            <div class="w-[1px] h-6 bg-gray hidden lg:block"></div>
+            <div class="w-6 h-[1px] bg-gray block lg:hidden"></div>
+            <p>Gift & Decoration Store</p>
+          </div>
+          <div class="footer-nav">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./shop-page.html">Shop</a></li>
+              <li><a href="./product-page.html">Product</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="./contact-us.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright-and-policy">
+          <div class="copyright">
+            <p>Copyright © 2023 3legant. All rights reserved</p>
+            <p class="text-white">Privacy Policy</p>
+            <p class="text-white">Terms of Use</p>
+          </div>
+
+          <div class="icon-app">
+            <img src="../assets/img/home-page-img/instagram.png" alt="Image" />
+            <img src="../assets/img/home-page-img/facebook.png" alt="Image" />
+            <img src="../assets/img/home-page-img/youtube.png" alt="Image" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

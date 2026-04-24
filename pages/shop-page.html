@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop Page</title>
+    <title>3legant.</title>
     <!-- Font awesome icon  -->
     <link
       rel="stylesheet"
@@ -28,14 +28,14 @@
     <style type="text/tailwindcss">
       @layer base {
         header {
-          @apply flex justify-between w-full px-40 py-4 sticky top-0 bg-white z-50;
+          @apply flex justify-between w-full px-8 xl:px-40 py-4 sticky top-0 bg-white z-50;
 
           h1 {
-            @apply font-medium text-[24px] text-primary;
+            @apply font-medium xl:text-[24px] text-primary;
           }
 
           ul {
-            @apply flex gap-10 text-[14px] text-gray font-space font-medium items-center;
+            @apply gap-10 text-[14px] text-gray font-space font-medium items-center;
 
             li {
               @apply hover:text-primary;
@@ -43,17 +43,27 @@
           }
         }
 
+        main {
+          @apply max-w-[1440px] w-full mx-auto px-8;
+        }
+
+        a {
+          @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+        }
+
         footer {
           @apply w-full;
           .email {
-            @apply flex flex-col gap-8 bg-[url('../assets/img/home-page-img/footer.png')] bg-cover bg-center items-center justify-center  w-full h-[360px];
+            @apply flex flex-col gap-8 bg-[url('../assets/img/home-page-img/footer.png')] bg-cover bg-center px-8 items-center justify-center  w-full h-[360px];
 
             h3 {
-              @apply text-[40px] font-medium text-center;
+              @apply text-[28px] xl:text-[40px] font-medium text-center;
             }
 
             p {
-              @apply text-[18px] font-normal font-inter;
+              @apply text-[14px] xl:text-[18px] font-normal font-inter;
             }
 
             .enter-email {
@@ -64,20 +74,22 @@
               }
 
               a {
-                @apply font-inter font-medium text-gray;
+                @apply font-inter font-medium text-gray relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
               }
             }
           }
 
           .main-footer {
-            @apply bg-primary  text-[#E8ECEF] px-40 pt-20 pb-8 flex flex-col gap-[49px] justify-center items-center w-full;
+            @apply bg-primary  text-[#E8ECEF] xl:px-40 xl:pt-20 xl:pb-8 px-8 py-12 flex flex-col gap-[49px] justify-center items-center w-full;
 
             .nav {
-              @apply flex justify-between items-center  w-full gap-8;
+              @apply flex flex-col lg:flex-row justify-between items-center  w-full gap-8;
             }
 
             .name-company {
-              @apply flex justify-between items-center gap-8;
+              @apply flex flex-col lg:flex-row justify-between items-center gap-4 xl:gap-8;
 
               h3 {
                 @apply text-white text-[24px] font-medium;
@@ -89,17 +101,19 @@
             }
 
             ul {
-              @apply flex justify-center items-center gap-10 text-center flex-wrap;
+              @apply flex flex-col  lg:flex-row justify-center items-center gap-8 xl:gap-10 text-center flex-wrap;
               a {
-                @apply text-[14px] font-inter font-normal hover:text-gray;
+                @apply text-[14px] font-inter font-normal  relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-white;
               }
             }
 
             .copyright-and-policy {
-              @apply py-4 flex justify-between items-center w-full gap-8 border-t-[0.5px] border-gray;
+              @apply py-4 flex flex-col lg:flex-row justify-between items-center w-full gap-8 border-t-[0.5px] border-gray;
 
               .copyright {
-                @apply flex justify-start gap-7 items-center flex-wrap;
+                @apply flex flex-col lg:flex-row justify-center lg:justify-start gap-7 items-center flex-wrap;
 
                 p {
                   @apply text-[12px];
@@ -116,7 +130,7 @@
 
       @layer components {
         .shop-now {
-          @apply text-[14px] flex gap-3 justify-center font-inter bg-[#F3F5F7] relative;
+          @apply text-[12px] xl:text-[14px] flex gap-3 justify-center font-inter bg-[#F3F5F7] relative;
 
           a {
             @apply text-blue font-medium border-b-2;
@@ -141,39 +155,642 @@
             @apply w-5 h-5 bg-primary text-white rounded-full flex justify-center items-center;
           }
         }
-      }
 
+        .hero {
+          @apply h-[392px]  flex flex-col justify-center items-center bg-[url('../assets/img/shop-page-img/hero.png')] bg-cover bg-center gap-6 mb-[60px];
+
+          .path {
+            @apply flex gap-4 justify-center items-center font-inter text-[14px] font-medium;
+          }
+
+          h1 {
+            @apply text-[54px] font-medium;
+          }
+          p {
+            @apply font-inter text-[20px];
+          }
+        }
+
+        .group-products {
+          @apply flex flex-col lg:flex-row justify-center items-start gap-6 mb-[100px];
+
+          .filter {
+            @apply max-w-[262px] w-full flex-col gap-8 justify-center items-start font-inter font-semibold;
+
+            p,
+            h2 {
+              @apply text-primary;
+            }
+
+            h2 {
+              @apply text-[20px];
+            }
+
+            ul {
+              @apply text-[14px] text-gray flex flex-col gap-3;
+            }
+
+            .categories {
+              @apply flex-col gap-4 w-full;
+
+              ul {
+                @apply text-gray;
+
+                a {
+                  @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
+after:h-[1px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+                }
+              }
+
+              .select-themes {
+                @apply flex justify-between items-center;
+
+                .scroll-bar {
+                  @apply w-2 h-[226px] bg-[#EAEAEA] rounded-[100px];
+
+                  div {
+                    @apply w-2 h-[180px] bg-gray rounded-[100px];
+                  }
+                }
+              }
+            }
+
+            .price {
+              @apply flex-col gap-4 w-full;
+
+              form {
+                ul {
+                  @apply gap-2;
+
+                  li {
+                    @apply flex justify-between items-center;
+
+                    input {
+                      @apply mr-2 w-[24px] h-[24px] border-[1.5px] border-gray rounded bg-[#FCFCFD] checked:text-white checked:bg-primary checked:text-white;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .products {
+            @apply max-w-[843px] w-full font-inter;
+
+            nav {
+              @apply flex justify-between items-center mb-10;
+
+              h3 {
+                @apply text-[20px] font-semibold;
+              }
+              form {
+                @apply flex justify-center gap-8;
+
+                .style-table {
+                  @apply flex justify-center items-center;
+                }
+              }
+            }
+
+            .grid-products {
+              @apply flex gap-4 lg:gap-6 justify-center mb-12 flex-wrap;
+              .product {
+                @apply max-w-[152px] lg:max-w-[262px] w-full flex justify-start flex-col gap-3 transition-all duration-300 hover:scale-105;
+
+                .img-product {
+                  @apply w-full h-[203px] lg:h-[349px] bg-cover bg-center flex flex-col items-center gap-[215px];
+                }
+
+                .new-heart {
+                  @apply flex justify-center gap-[21px] lg:gap-[131px] mt-4 font-inter font-bold text-[16px];
+
+                  i {
+                    @apply w-8 h-8 bg-white rounded-full flex justify-center items-center text-gray hover:text-primary cursor-pointer;
+                  }
+
+                  p {
+                    @apply w-[67px] h-[24px] px-[14px] py-1 flex justify-center items-center mb-2 rounded border-transparent;
+                  }
+                  p:first-child {
+                    @apply bg-white;
+                  }
+
+                  p:nth-child(2) {
+                    @apply bg-green text-white;
+                  }
+                }
+
+                button {
+                  @apply bg-primary w-[128px] lg:w-[230px] h-8 lg:h-[46px]  lg:px-6  lg:py-2 font-inter font-medium text-[16px] text-white mb-4 rounded-lg border-transparent
+             opacity-0 group-hover:opacity-100 transition-all duration-700 scale-90 group-hover:scale-100 hover:text-primary hover:bg-white border border-primary;
+                }
+
+                .name-and-price {
+                  @apply flex flex-col gap-1 font-inter text-[16px] font-semibold;
+                  .price {
+                    @apply flex gap-3;
+
+                    p:nth-child(2) {
+                      @apply text-gray line-through;
+                    }
+                  }
+                }
+              }
+            }
+
+            .btn-show-more {
+              @apply w-[163px] mx-auto flex justify-center items-center border border-primary rounded-[80px] bg-white font-inter font-medium py-[6px] mt-20 hover:bg-primary hover:text-white transition-all duration-500;
+            }
+          }
+        }
+      }
       @layer utilities {
       }
     </style>
   </head>
   <body class="font-poppins text-primary">
     <div class="shop-now">
-      <img src="../assets/img/home-page-img/ticket-percent.png" alt="Image" />
+      <img
+        src="../assets/img/home-page-img/ticket-percent.png"
+        alt="Image"
+        class="xl:w-6 xl:h-6 w-4 h-4"
+      />
       <p>30% off storewide — Limited time!</p>
-      <a href="">Shop Now <i class="fa-solid fa-arrow-right"></i> </a>
+      <a href="./shop-page.html" class="hidden lg:block"
+        >Shop Now <i class="fa-solid fa-arrow-right"></i>
+      </a>
       <i class="fa-solid fa-x x-exit"></i>
     </div>
 
     <header>
-      <h1>3legant<span class="text-gray">.</span></h1>
-      <ul>
+      <div class="flex justify-center gap-1 items-center">
+        <div class="icon justify-center flex items-center">
+          <i class="fa-solid fa-bars block lg:hidden text-[12px]"></i>
+        </div>
+        <h1>3legant<span class="text-gray">.</span></h1>
+      </div>
+
+      <ul class="hidden lg:flex">
         <li><a href="../index.html">Home</a></li>
         <li><a href="./shop-page.html">Shop</a></li>
         <li><a href="./product-page.html">Product</a></li>
         <li><a href="./contact-us.html">Contact Us</a></li>
       </ul>
+
       <div class="icon">
-        <img src="../assets/img/home-page-img/search 02.png" alt="Image" />
-        <img src="../assets/img/home-page-img/profile.png" alt="Image" />
+        <img
+          src="../assets/img/home-page-img/search 02.png"
+          alt="Image"
+          class="hidden lg:block"
+        />
+        <a href="./sign-in.html" class="hidden lg:block">
+          <img src="../assets/img/home-page-img/profile.png" alt="Image" />
+        </a>
         <div class="flex gap-[5px]">
-          <img src="../assets/img/home-page-img/shopping bag.png" alt="Image" />
+          <a href="./cart.html">
+            <img
+              src="../assets/img/home-page-img/shopping bag.png"
+              alt="Image"
+            />
+          </a>
           <p>2</p>
         </div>
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <div class="hero">
+        <div class="path">
+          <a
+            class="flex gap-1 text-gray hover:text-primary"
+            href="../index.html"
+            >Home<img
+              src="../assets/img/shop-page-img/greater-than.png"
+              alt="Image"
+          /></a>
+          <a href="./shop-page.html">Shop</a>
+        </div>
+        <h1>Shop Page</h1>
+        <p class="text-center">Let’s design the place you always imagined.</p>
+      </div>
+
+      <div class="group-products">
+        <div class="filter">
+          <h2 class="flex gap-2 lg:mb-8">
+            <img src="../assets/img/shop-page-img/filter 05.png" alt="Image" />
+            Filter
+          </h2>
+
+          <div class="categories hidden lg:flex">
+            <p>CATEGORIES</p>
+            <div class="select-themes">
+              <ul>
+                <li><a href="">All Room</a></li>
+                <li><a href="">Living Room</a></li>
+                <li><a href="">Bedroom</a></li>
+                <li><a href="">Kitchen</a></li>
+                <li><a href="">Bathroom</a></li>
+                <li><a href="">Dinning</a></li>
+                <li><a href="">Outdoor</a></li>
+              </ul>
+              <div class="scroll-bar">
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="price hidden lg:flex">
+            <p>PRICE</p>
+            <form action="">
+              <ul>
+                <li>
+                  <label for="">All Price </label> <input type="checkbox" />
+                </li>
+                <li>
+                  <label for="">$0.00 - 99.99 </label> <input type="checkbox" />
+                </li>
+                <li>
+                  <label for="">$100.00 - 199.99 </label>
+                  <input type="checkbox" />
+                </li>
+                <li>
+                  <label for="">$200.00 - 299.99</label>
+                  <input type="checkbox" />
+                </li>
+                <li>
+                  <label for="">$300.00 - 399.99 </label>
+                  <input type="checkbox" />
+                </li>
+                <li>
+                  <label for="">$400.00+</label> <input type="checkbox" />
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+
+        <div class="products">
+          <nav>
+            <h3>Living Room</h3>
+            <div class="sort-by">
+              <form action="">
+                <button>
+                  <img
+                    src="../assets/img/shop-page-img/arrow-down.png"
+                    alt="Image"
+                  />
+                </button>
+
+                <div class="style-table">
+                  <button>
+                    <img
+                      src="../assets/img/shop-page-img/table-1.png"
+                      alt=""
+                      class="hidden lg:block"
+                    />
+                  </button>
+
+                  <button>
+                    <img
+                      src="../assets/img/shop-page-img/table-2.png"
+                      alt=""
+                      class="hidden lg:block"
+                    />
+                  </button>
+
+                  <button>
+                    <img
+                      src="../assets/img/shop-page-img/table-3.png"
+                      alt=""
+                      class="hidden lg:block"
+                    />
+                  </button>
+
+                  <button>
+                    <img
+                      src="../assets/img/shop-page-img/table-4.png"
+                      alt=""
+                      class="hidden lg:block"
+                    />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </nav>
+
+          <div class="grid-products">
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product">
+              <div
+                class="img-product group bg-[url('../assets/img/home-page-img/product-1.png')] relative"
+              >
+                <div class="new-heart absolute lg:static top-4 left-4">
+                  <div>
+                    <p>NEW</p>
+                    <p>-50%</p>
+                  </div>
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <button class="absolute lg:static bottom-0 left-3">
+                  Add to cart
+                </button>
+              </div>
+
+              <div class="name-and-price">
+                <div class="icon-star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>Loveseat Sofa</p>
+                <div class="price">
+                  <p>$199.00</p>
+                  <p>$400.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-show-more">Show more</button>
+        </div>
+      </div>
+    </main>
 
     <footer>
       <div class="email">
@@ -192,7 +809,8 @@
         <div class="nav">
           <div class="name-company">
             <h3>3legant<span>.</span></h3>
-            <div class="w-[1px] h-6 bg-gray"></div>
+            <div class="w-[1px] h-6 bg-gray hidden lg:block"></div>
+            <div class="w-6 h-[1px] bg-gray block lg:hidden"></div>
             <p>Gift & Decoration Store</p>
           </div>
           <div class="footer-nav">

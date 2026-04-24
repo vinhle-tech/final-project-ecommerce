@@ -27,7 +27,7 @@
         }
 
         input[type="checkbox"] {
-          @apply w-[24px] h-[24px] border-[1.5px] border-gray rounded;
+          @apply w-[24px] h-[24px] border-[1.5px] border-gray rounded checked:bg-primary;
         }
 
         input[type="text"],
@@ -38,8 +38,8 @@
       }
 
       @layer components {
-        .btn-sign-up {
-          @apply w-full py-[10px] px-10 bg-primary text-white text-center font-inter font-medium rounded-lg;
+        .btn-sign-in {
+          @apply w-full py-[10px] px-10 bg-primary text-white text-center font-inter font-medium rounded-lg hover:text-primary hover:bg-white transition-all duration-300 border border-primary;
         }
 
         .container {
@@ -70,6 +70,7 @@
       @layer utilities {
       }
     </style>
+    <link rel="stylesheet" href="../css/sign-in.css" />
   </head>
   <body class="font-inter text-primary">
     <div class="container">
@@ -106,7 +107,7 @@
             <a class="text-primary font-semibold" href="">Forgot password?</a>
           </div>
 
-          <button class="btn-sign-up">Sign In</button>
+          <button class="btn-sign-in">Sign In</button>
         </form>
       </div>
     </div>
