@@ -1,10 +1,28 @@
+<?php
+session_start();
+// restore session from fallback cookies if session not present
+if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
+  // restore minimal session from cookie (note: cookie can be forged, so
+  // for full security you'd verify against DB token)
+  $_SESSION['user_id'] = intval($_COOKIE['user_id']);
+  $_SESSION['user_name'] = $_COOKIE['user_name'] ?? 'Account';
+  session_regenerate_id(true);
+}
+
+if (!isset($_SESSION['user_id'])) {
+  header('Location: sign-in.html');
+  exit;
+}
+
+$name = htmlspecialchars($_SESSION['user_name'] ?? 'Account');
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/my-account.css" />
+    <title>My Account</title>
+    <link rel="stylesheet" href="../css/style.css" />
     <!-- Font awesome icon  -->
     <link
       rel="stylesheet"
@@ -55,8 +73,8 @@
 
         a {
           @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
-after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
-hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+    after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+    hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
         }
 
         footer {
@@ -81,8 +99,8 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
 
               a {
                 @apply font-inter font-medium text-gray relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
-after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
-hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
+    after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:rounded-full
+    hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-primary;
               }
             }
           }
@@ -110,8 +128,8 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
               @apply flex flex-col  lg:flex-row justify-center items-center gap-8 xl:gap-10 text-center flex-wrap;
               a {
                 @apply text-[14px] font-inter font-normal  relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0
-after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left after:rounded-full
-hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-white;
+    after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left after:rounded-full
+    hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text-white;
               }
             }
 
@@ -181,6 +199,12 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
       <i class="fa-solid fa-x x-exit"></i>
     </div>
 
+<?php if (isset($_GET['created']) && $_GET['created'] === '1'): ?>
+    <div class="mx-8 xl:mx-40 mb-6 rounded-lg border border-green-300 bg-green-100 px-4 py-3 text-green-800">
+      Account created successfully.
+    </div>
+<?php endif; ?>
+
     <header>
       <div class="flex justify-center gap-1 items-center">
         <div class="icon justify-center flex items-center">
@@ -202,7 +226,7 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
           alt="Image"
           class="hidden lg:block"
         />
-        <a href="./myAccount.php" class="hidden lg:block">
+        <a href="../auth/logout.php" class="hidden lg:block">
           <img src="../assets/img/home-page-img/profile.png" alt="Image" />
         </a>
         <div class="flex gap-[5px]">
@@ -228,7 +252,7 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
             <div class="profile-image-wrapper">
               <img
                 src="https://via.placeholder.com/80"
-                alt="Sofia Havertz"
+                alt="Profile"
                 class="profile-img"
               />
               <button class="edit-image-btn" aria-label="Edit profile picture">
@@ -249,7 +273,7 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
                 </svg>
               </button>
             </div>
-            <h2 class="profile-name">Sofia Havertz</h2>
+            <h2 class="profile-name"><?= $name ?></h2>
           </div>
 
           <nav class="account-nav">
@@ -258,7 +282,7 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
               <li><a href="#">Address</a></li>
               <li><a href="#">Orders</a></li>
               <li><a href="#">Wishlist</a></li>
-              <li><a href="#">Log Out</a></li>
+              <li><a href="../auth/logout.php">Log Out</a></li>
             </ul>
           </nav>
         </aside>
@@ -406,6 +430,5 @@ hover:after:scale-x-100 after:transition-transform after:duration-300 hover:text
         </div>
       </div>
     </footer>
-    <script src="../assets/js/header.js"></script>
   </body>
 </html>

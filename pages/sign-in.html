@@ -89,10 +89,11 @@
           <p class="text-gray">Don't have an account yet?</p>
           <a class="text-green" href="./sign-up.html">Sign Up</a>
         </div>
-        <form action="/login">
-          <input type="email" placeholder="Your username or email address" />
+        <div id="messageBox" class="hidden bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded mb-6"></div>
+        <form action="../auth/login.php" method="POST">
+          <input type="email" name="email" placeholder="Your username or email address" required />
           <div class="password relative">
-            <input type="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="Password" required />
             <img
               class="icon-password"
               src="../assets/img/sign-in-and-sign-up-img/Vector.png"
@@ -111,5 +112,17 @@
         </form>
       </div>
     </div>
+    <script>
+      const signInParams = new URLSearchParams(window.location.search);
+      const signInBox = document.getElementById('messageBox');
+      if (signInBox) {
+        const error = signInParams.get('error');
+        if (error === 'invalid') {
+          signInBox.textContent = 'Sign in failed: wrong email/username or password.';
+          signInBox.classList.remove('hidden');
+        }
+      }
+    </script>
+    <script src="../assets/js/header.js"></script>
   </body>
 </html>
